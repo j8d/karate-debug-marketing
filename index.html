@@ -136,6 +136,25 @@
             font-weight: 600;
             margin-bottom: 24px;
         }
+
+        /* Demo Section */
+        .demo {
+            padding: 0 0 80px;
+            background: var(--white);
+        }
+        .demo-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.15);
+            border: 1px solid var(--gray-100);
+        }
+        .demo-gif {
+            width: 100%;
+            display: block;
+        }
+
         /* Features Section */
         .features {
             padding: 100px 0;
@@ -398,6 +417,15 @@
                     Install from VS Code
                 </a>
                 <a href="#features" class="btn btn-secondary btn-large">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section class="demo">
+        <div class="container">
+            <div class="demo-wrapper">
+                <img src="demo.gif" alt="Karate Debug in action - debugging a .feature file in VS Code" class="demo-gif">
             </div>
         </div>
     </section>
