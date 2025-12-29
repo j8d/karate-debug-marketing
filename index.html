@@ -140,35 +140,19 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 32px;
+            gap: 16px;
             margin-top: 48px;
-            padding: 24px 40px;
-            background: var(--white);
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
+            flex-wrap: wrap;
         }
-        .social-proof-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 4px;
+        .social-proof .badge-link {
+            text-decoration: none;
+            transition: transform 0.2s;
         }
-        .social-proof-number {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--dark);
+        .social-proof .badge-link:hover {
+            transform: translateY(-2px);
         }
-        .social-proof-label {
-            font-size: 0.875rem;
-            color: var(--gray-500);
-        }
-        .social-proof-divider {
-            width: 1px;
-            height: 40px;
-            background: var(--gray-300);
+        .social-proof img {
+            height: 28px;
         }
 
         /* Demo Section */
@@ -453,20 +437,15 @@
                 <a href="#features" class="btn btn-secondary btn-large">Learn More</a>
             </div>
             <div class="social-proof">
-                <div class="social-proof-item">
-                    <span class="social-proof-number">⭐ 5.0</span>
-                    <span class="social-proof-label">Rating</span>
-                </div>
-                <div class="social-proof-divider"></div>
-                <div class="social-proof-item">
-                    <span class="social-proof-number">24+</span>
-                    <span class="social-proof-label">Installs</span>
-                </div>
-                <div class="social-proof-divider"></div>
-                <div class="social-proof-item">
-                    <span class="social-proof-number">30</span>
-                    <span class="social-proof-label">Day Free Trial</span>
-                </div>
+                <a href="https://marketplace.visualstudio.com/items?itemName=j8d.karate-debug&ssr=false#review-details" class="badge-link">
+                    <img src="https://img.shields.io/visual-studio-marketplace/r/j8d.karate-debug?style=for-the-badge&label=Rating&color=5c4ee5" alt="Rating">
+                </a>
+                <a href="https://marketplace.visualstudio.com/items?itemName=j8d.karate-debug" class="badge-link">
+                    <img src="https://img.shields.io/visual-studio-marketplace/i/j8d.karate-debug?style=for-the-badge&label=Installs&color=10b981" alt="Installs">
+                </a>
+                <a href="https://marketplace.visualstudio.com/items?itemName=j8d.karate-debug" class="badge-link">
+                    <img src="https://img.shields.io/badge/Free_Trial-30_Days-5c4ee5?style=for-the-badge" alt="30 Day Free Trial">
+                </a>
             </div>
         </div>
     </section>
