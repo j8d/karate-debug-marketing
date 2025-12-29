@@ -124,6 +124,14 @@
             margin: 0 auto 40px;
         }
         .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .hero-requirements {
+            font-size: 0.875rem;
+            color: var(--gray-500);
+            margin-top: 24px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
         .hero-badge {
             display: inline-flex;
             align-items: center;
@@ -268,6 +276,38 @@
         .step p {
             color: var(--gray-500);
         }
+        .requirements-box {
+            background: var(--white);
+            border: 1px solid var(--gray-300);
+            border-radius: 12px;
+            padding: 24px;
+            max-width: 400px;
+            margin: 32px auto 0;
+            text-align: left;
+        }
+        .requirements-box h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 12px;
+        }
+        .requirements-box ul {
+            list-style: none;
+        }
+        .requirements-box li {
+            color: var(--gray-700);
+            font-size: 0.9rem;
+            padding: 4px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        .requirements-box li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: 600;
+        }
 
         /* Pricing */
         .pricing {
@@ -325,6 +365,35 @@
             content: '✓';
             color: var(--secondary);
             font-weight: 700;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 100px 0;
+            background: var(--gray-100);
+        }
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            margin-top: 48px;
+        }
+        .faq-item {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 24px;
+            border: 1px solid var(--gray-300);
+        }
+        .faq-item h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 12px;
+        }
+        .faq-item p {
+            color: var(--gray-500);
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
 
         /* CTA Section */
@@ -405,7 +474,7 @@
                 <a href="#features">Features</a>
                 <a href="#how-it-works">How It Works</a>
                 <a href="#pricing">Pricing</a>
-                <a href="mailto:ryan@karatedebug.com">Contact</a>
+                <a href="#faq">FAQ</a>
                 <a href="https://marketplace.visualstudio.com/items?itemName=j8d.karate-debug" class="btn btn-primary" style="color: white;">Install</a>
             </div>
         </div>
@@ -415,15 +484,16 @@
     <section class="hero">
         <div class="container">
             <div class="hero-badge">🎉 30-Day Free Trial — No Credit Card Required</div>
-            <h1>Debug <span>Karate</span> Tests<br>Like a Pro</h1>
-            <p>Set breakpoints directly in your .feature files, step through scenarios, inspect variables, update match statements, switch environments and run tests with a single click in VS Code.</p>
+            <h1>A Real Debugger for <span>Karate</span><br>.feature Tests in VS Code</h1>
+            <p>Breakpoints, variable inspection, hot-swap values, and environment switching—without rewiring your project.</p>
             <div class="hero-buttons">
                 <a href="https://marketplace.visualstudio.com/items?itemName=j8d.karate-debug" class="btn btn-primary btn-large">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.15 2.587L18.21.21a1.494 1.494 0 0 0-1.705.29l-9.46 8.63-4.12-3.128a.999.999 0 0 0-1.276.057L.327 7.261A1 1 0 0 0 .326 8.74L3.899 12 .326 15.26a1 1 0 0 0 .001 1.479L1.65 17.94a.999.999 0 0 0 1.276.057l4.12-3.128 9.46 8.63a1.492 1.492 0 0 0 1.704.29l4.942-2.377A1.5 1.5 0 0 0 24 20.06V3.939a1.5 1.5 0 0 0-.85-1.352zm-5.146 14.861L10.826 12l7.178-5.448v10.896z"/></svg>
-                    Install from VS Code
+                    Install in VS Code
                 </a>
-                <a href="#features" class="btn btn-secondary btn-large">Learn More</a>
+                <a href="#faq" class="btn btn-secondary btn-large">Read FAQs</a>
             </div>
+            <p class="hero-requirements">Requires Java 17+ and a Maven Karate project. Trial starts when you sign in with GitHub.</p>
         </div>
     </section>
 
@@ -474,7 +544,7 @@
                 <div class="feature-card">
                     <div class="feature-icon">▶️</div>
                     <h3>One-Click Execution</h3>
-                    <p>CodeLens buttons appear above every Feature and Scenario. Debug with a single click — no configuration required.</p>
+                    <p>Debug buttons appear above every Feature and Scenario. Click to run — no configuration required.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">📁</div>
@@ -502,26 +572,39 @@
                 <h2>Get Started in Under 2 Minutes</h2>
                 <p>No complex setup. No configuration files. Just install and start debugging.</p>
             </div>
+            <div class="requirements-box">
+                <h4>📋 Requirements</h4>
+                <ul>
+                    <li>Java 17+ (21 recommended)</li>
+                    <li>Maven project with Karate dependencies</li>
+                    <li>Tests in src/test/java or src/test/resources</li>
+                </ul>
+            </div>
             <div class="steps">
                 <div class="step">
                     <div class="step-number">1</div>
-                    <h3>Install the Extension</h3>
-                    <p>Search for "Karate Debug" in VS Code or install from the Marketplace</p>
+                    <h3>Install Karate Debug</h3>
+                    <p>Search for "Karate Debug" in VS Code Extensions (starts a 30-day free trial)</p>
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
+                    <h3>Open a Maven Karate Project</h3>
+                    <p>Open any Maven project with Karate dependencies (Java 17+)</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
                     <h3>Open a .feature File</h3>
                     <p>Navigate to any Karate feature file in your project</p>
                 </div>
                 <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Click "Debug"</h3>
-                    <p>Use the CodeLens button above any Feature or Scenario</p>
+                    <div class="step-number">4</div>
+                    <h3>Click "Debug Scenario"</h3>
+                    <p>Click the button above any Scenario to start debugging</p>
                 </div>
                 <div class="step">
-                    <div class="step-number">4</div>
-                    <h3>Start Debugging</h3>
-                    <p>Set breakpoints, step through code, and inspect variables</p>
+                    <div class="step-number">5</div>
+                    <h3>Sign In with GitHub</h3>
+                    <p>One-time sign in activates your trial — no credit card needed</p>
                 </div>
             </div>
         </div>
@@ -532,7 +615,7 @@
         <div class="container">
             <div class="section-header">
                 <h2>Simple, Transparent Pricing</h2>
-                <p>Start with a free trial. Upgrade when you're ready. Cancel anytime.</p>
+                <p>Free to install. Full features for 30 days. Then $29.99/month if you keep using it.</p>
             </div>
             <div class="pricing-cards">
                 <div class="pricing-card">
@@ -560,6 +643,42 @@
                         <li>Early access to new features</li>
                     </ul>
                     <a href="https://marketplace.visualstudio.com/items?itemName=j8d.karate-debug" class="btn btn-primary" style="width:100%;justify-content:center;">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ / Trust Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Everything you need to know about Karate Debug</p>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>Does Karate Debug upload my code or tests?</h4>
+                    <p>No. All debugging happens locally on your machine. We never see, access, or store your code, tests, or test data.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>What does GitHub sign-in do?</h4>
+                    <p>GitHub sign-in is used only for license activation. We verify your GitHub identity to start your trial or validate your subscription. No repository access is requested.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Does it work offline after activation?</h4>
+                    <p>Yes. Once activated, Karate Debug works fully offline. An internet connection is only needed for the initial activation and periodic license checks.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>What are the system requirements?</h4>
+                    <p>Java 17 or higher (21 recommended), a Maven project with Karate dependencies, and VS Code. Tests should be in src/test/java or src/test/resources.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Can I use it on multiple machines?</h4>
+                    <p>Pro subscribers can activate on up to 5 machines. Perfect for work laptop, home desktop, and CI environments.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>What happens after the 30-day trial?</h4>
+                    <p>You can subscribe to Pro for $29.99/month to continue using all features. No credit card is required to start the trial.</p>
                 </div>
             </div>
         </div>
